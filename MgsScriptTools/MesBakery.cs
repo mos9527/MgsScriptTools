@@ -117,8 +117,9 @@ class MesBakery {
 			for (int i = 0; i < text.Length; i++)
 				cursor = cursor.CreateBranch(text[i]);
 			if (cursor.HasValue) {
-				string style = italic ? "italic" : "regular";
-				throw new Exception($"Duplicate {style} glyph text: {text}");
+				continue;
+				// string style = italic ? "italic" : "regular";
+				// throw new Exception($"Duplicate {style} glyph text: {text} {spec.Index:X04}");
 			}
 			cursor.Value = spec;
 		}

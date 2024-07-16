@@ -26,6 +26,7 @@ macros:
 charset:
   chaos_head_noah: charset/chaos_head_noah.json
   chaos_head_noah-extended: charset/chaos_head_noah-extended.json
+  chaos_head_noah-zhs: charset/chaos_head_noah-zhs.json
 
 flags:
   memories_off_historia:
