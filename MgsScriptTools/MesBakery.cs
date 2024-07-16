@@ -65,13 +65,16 @@ class MesBakery {
 				}
 			}
 
-			if (longestMatch is null) {
-				string style = italic ? "italic" : "regular";
-				char ch = chunk[0];
-				throw new Exception($"No {style} glyph available for {ch} (U+{(int)ch:X04})");
+			if (longestMatch is null)
+			{
+                tokens.Add(new MesGlyph(0));
+                chunk = chunk[1..];
+            }
+			else
+			{
+				tokens.Add(new MesGlyph(longestMatch.Index));
+				chunk = chunk[maxLength..];
 			}
-			tokens.Add(new MesGlyph(longestMatch.Index));
-			chunk = chunk[maxLength..];
 		}
 	}
 
