@@ -67,6 +67,7 @@ class MesBakery {
 
 			if (longestMatch is null)
 			{
+				Console.WriteLine($"Unmatched character: {chunk[0]} (U+{(int)chunk[0]:X04})");
                 tokens.Add(new MesGlyph(0));
                 chunk = chunk[1..];
             }
@@ -120,8 +121,9 @@ class MesBakery {
 			for (int i = 0; i < text.Length; i++)
 				cursor = cursor.CreateBranch(text[i]);
 			if (cursor.HasValue) {
+				string style = italic ? "italic" : "regular";
+				Console.WriteLine($"Duplicate {style} glyph text: {text} {spec.Index:X04}");
 				continue;
-				// string style = italic ? "italic" : "regular";
 				// throw new Exception($"Duplicate {style} glyph text: {text} {spec.Index:X04}");
 			}
 			cursor.Value = spec;
